@@ -13,10 +13,15 @@ correct_number =random.randint(1,100)
 guess_count = 1
 while guess!= correct_number:
   time.sleep(1)
-  guess_count += 1
-  if(guess < correct_number):
-    guess = int( input ( "Wrong. You need to guess higher. What is your guess?:" ))
-  else:
-    guess = int( input ( "Wrong. You need to guess lower. What is your guess?:" ))
-
-print(f"Congrats! The right answer was {correct_number}. It took {guess_count} guesses.")
+  if(guess_count <= 5):
+    guess_count += 1
+    if(guess < correct_number):
+      guess = int( input ( "Wrong. You need to guess higher. What is your guess?:" ))
+    else:
+      guess = int( input ( "Wrong. You need to guess lower. What is your guess?:" ))
+  else if(guess_count > 5):
+     break
+if(guess == correct_number):
+  print(f"Congrats! The right answer was {correct_number}. It took {guess_count} guesses.")
+else:
+  print(f"Sorry....The right answer was {correct_number}. Better luck next time")
